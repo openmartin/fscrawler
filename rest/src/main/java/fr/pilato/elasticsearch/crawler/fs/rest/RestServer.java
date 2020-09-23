@@ -49,7 +49,8 @@ public class RestServer {
             final ResourceConfig rc = new ResourceConfig()
                     .registerInstances(
                             new ServerStatusApi(esClient, settings),
-                            new UploadApi(settings, esClient))
+                            new UploadApi(settings, esClient),
+                            new DownloadApi(settings, esClient))
                     .register(MultiPartFeature.class)
                     .register(RestJsonProvider.class)
                     .register(JacksonFeature.class)
